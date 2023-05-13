@@ -4,17 +4,45 @@ import { useLoaderData } from 'react-router-dom'
 const Checkout = () => {
     const serviceData = useLoaderData();
     console.log('Hello',serviceData)
+
+    
+
   return (
     <div>
         <div className='container mx-auto'>
-            <div>
+            <div className='w-full md:w-1/2 mx-auto'>
                 <form action="">
-                    <div className="form-control">
+                    <div className="form-control mb-4">
                       <label className="label">
-                        <span className="label-text">Name</span>
+                        <span className="label-text text-base font-medium">Name</span>
                       </label>
-                      <input type="text" placeholder="Your Name" className="input input-bordered w-full max-w-xs" />
+                      <input type="text" name='name' id="name"className="input input-bordered" placeholder="Your Name"  />
                     </div>                    
+                    <div className="form-control mb-4">
+                      <label className="label">
+                        <span className="label-text text-base font-medium">Email</span>
+                      </label>
+                      <input type="email" name='email' id='email' placeholder="Your email" className="input input-bordered" />
+                    </div>                    
+                    <div className="form-control mb-4">
+                      <label className="label">
+                        <span className="label-text text-base font-medium">Phone</span>
+                      </label>
+                      <input type="tel" name='tel' id='email' placeholder="Your Phone" className="input input-bordered" />
+                    </div>                    
+                    <div className="form-control mb-4">
+                      <label className="label">
+                        <span className="label-text text-base font-medium">Services</span>
+                      </label>
+                      <input type="text" name='services' id='services' placeholder="Services" className="input input-bordered" />
+                    </div>                    
+                    <div className="form-control mb-4">
+                      <label className="label">
+                        <span className="label-text text-base font-medium">Message</span>
+                      </label>
+                      <textarea name="message" id="message" cols="30" className='textarea textarea-bordered h-32' rows="10" placeholder='Message'></textarea>
+                    </div>     
+                    <input type="submit" className='bg-[#40d0c6] px-10 py-3 font-medium rounded-md text-white cursor-pointer' value="Booking" />               
                 </form>
             </div>
         </div>
