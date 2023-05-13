@@ -1,9 +1,12 @@
 import React from 'react'
+import Banner from '../banner/Banner'
+import ServicesDataLoad from '../../services/ServicesDataLoad'
 
 const Home = () => {
   return (
     <div>
-        <h1>Hello Bangladesh</h1>
+        {/* <Banner></Banner> */}
+        <ServicesDataLoad></ServicesDataLoad>
     </div>
   )
 }
