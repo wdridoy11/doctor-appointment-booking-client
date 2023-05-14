@@ -1,8 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import Logo from '../../../assets/logo-1.png'
+import { AuthContext } from '../../../context/AuthProvider'
 
 const Header = () => {
+  const {user,logOut} = useContext(AuthContext);
+  const userLogout=()=>{
+    logOut()
+    .then((result)=>console.log(result))
+      .catch((error)=>{
+        console.log(error.message)
+      })
+  }
   return (
     <div className='bg-transparent py-5'>
         <div className='container mx-auto'>
@@ -16,12 +25,12 @@ const Header = () => {
                     <Link className='text-base font-medium text-black' to={`/`}>Services</Link>
                     <Link className='text-base font-medium text-black' to={`/`}>Blog</Link>
                     <Link className='text-base font-medium text-black' to={`/`}>Contact</Link>
-                     {/* {user ? <>
-                        <p className='text-base text-black font-medium'>{user.displayName}</p>
-                        <Link className='text-base font-medium bg-[#F9A51A] text-black px-4 py-1 rounded-md'>Logout</Link>
-                    </>:
-                    <Link className='text-base font-medium bg-[#F9A51A] text-black px-4 py-1 rounded-md' to={`/login`}>Login</Link>
-                    }  */}
+                     {user ? <div>
+                        <Link className='text-base font-medium bg-[#40d0c6] text-white px-7 py-2 rounded-full hover:bg-black duration-500 mr-2'>My Appointment</Link>
+                        <Link className='text-base font-medium bg-[#40d0c6] text-white px-7 py-2 rounded-full hover:bg-black duration-500' onClick={userLogout}>Logout</Link>
+                    </div>:
+                    <Link className='text-base font-medium bg-[#40d0c6] text-white px-7 py-2 rounded-full hover:bg-black duration-500' to={`/login`}>Login</Link>
+                    } 
                 </div>
             </div>
         </div>

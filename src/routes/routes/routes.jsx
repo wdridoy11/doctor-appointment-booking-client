@@ -6,6 +6,7 @@ import Login from '../../pages/login/Login'
 import Registration from '../../pages/registration/Registration'
 import ServicesDetails from '../../pages/services/ServicesDetails'
 import Booking from '../../pages/booking/Booking'
+import PrivetRoute from '../privetRoute/PrivetRoute'
 
 const router = createBrowserRouter([
     {
@@ -23,7 +24,7 @@ const router = createBrowserRouter([
             },
             {
                 path:"booking/:id",
-                element:<Booking></Booking>,
+                element:<PrivetRoute><Booking></Booking></PrivetRoute>,
                 loader:({params})=>fetch(`http://localhost:5000/services/${params.id}`)
             },
             {
@@ -32,7 +33,7 @@ const router = createBrowserRouter([
             },
 
             {
-                path:"Registration",
+                path:"registration",
                 element:<Registration></Registration>
             }
         ]

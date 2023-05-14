@@ -1,17 +1,46 @@
 import React from 'react'
 import { useLoaderData } from 'react-router-dom'
-
+import Swal from 'sweetalert2';
 const Booking = () => {
-    const serviceData = useLoaderData();
-    console.log('Hello',serviceData)
+  const serviceData = useLoaderData();
+  const handleBooking=(event)=>{
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const phone = form.tel.value;
+    const services = form.services.value;
+    const date = form.date.value;
+    const message = form.message.value;
+    const bookingUser={name,email,phone,services,date,message}
 
-    
+    fetch(`http://localhost:5000/bookings`,{
+      method:"POST",
+      headers:{
+        "content-type":"application/json"
+      },
+      body:JSON.stringify(bookingUser)
+    })
+    .then((res)=>res.json())
+    .then((data)=>{
+      form.reset();
+      console.log(data)
+      if(data.insertedId){
+        Swal.fire(
+          'Congratulation!',
+          'Your appointment booking successful',
+          'success'
+        )
+      }
+    })
+
+  }
 
   return (
     <div className='py-20'>
         <div className='container mx-auto'>
             <div className='w-full md:w-1/2 mx-auto'>
-                <form action="">
+                <form onSubmit={handleBooking}>
                     <div className="form-control mb-4">
                       <label className="label">
                         <span className="label-text text-base font-medium">Name</span>
