@@ -13,7 +13,7 @@ const Booking = () => {
     const date = form.date.value;
     const message = form.message.value;
     const bookingUser={name,email,phone,services,date,message}
-
+console.log(bookingUser)
     fetch(`http://localhost:5000/bookings`,{
       method:"POST",
       headers:{
@@ -23,7 +23,7 @@ const Booking = () => {
     })
     .then((res)=>res.json())
     .then((data)=>{
-      form.reset();
+      // form.reset();
       console.log(data)
       if(data.insertedId){
         Swal.fire(
@@ -52,18 +52,18 @@ const Booking = () => {
                         <span className="label-text text-base font-medium">Email</span>
                       </label>
                       <input type="email" name='email' id='email' placeholder="Your email" className="input input-bordered" required/>
-                    </div>                    
+                    </div>                   
                     <div className="form-control mb-4">
                       <label className="label">
                         <span className="label-text text-base font-medium">Phone</span>
                       </label>
-                      <input type="tel" name='tel' id='email' placeholder="Your Phone" className="input input-bordered" required/>
+                      <input type="tel" name='tel' id='tel' placeholder="Your Phone" className="input input-bordered" required/>
                     </div>                    
                     <div className="form-control mb-4">
                       <label className="label">
-                        <span className="label-text text-base font-medium">Services</span>
+                        <span className="label-text text-base font-medium">Services Name</span>
                       </label>
-                      <input type="text" name='services' id='services' placeholder="Services" className="input input-bordered" required/>
+                      <input type="text" name='services' id='services' placeholder="Services name" className="input input-bordered" required/>
                     </div>                    
                     <div className="form-control mb-4">
                       <label className="label">
