@@ -1,8 +1,15 @@
-import React from 'react'
-import { useLoaderData } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { useLoaderData, useParams } from 'react-router-dom'
 import Swal from 'sweetalert2';
 const Booking = () => {
-  const serviceData = useLoaderData();
+ const {id}=useParams();
+ console.log(id)
+  // useEffect(()=>{
+  //   fetch(``)
+  //   .then((res)=>res.json())
+  //   .then((data)=>console.log(data))
+  // },[]) 
+  
   const handleBooking=(event)=>{
     event.preventDefault();
     const form = event.target;
@@ -13,7 +20,7 @@ const Booking = () => {
     const date = form.date.value;
     const message = form.message.value;
     const bookingUser={name,email,phone,services,date,message}
-console.log(bookingUser)
+
     fetch(`http://localhost:5000/bookings`,{
       method:"POST",
       headers:{
