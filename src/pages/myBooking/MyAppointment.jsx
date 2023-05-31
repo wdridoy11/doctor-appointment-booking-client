@@ -2,21 +2,15 @@ import React, { useContext, useEffect, useState } from 'react'
 import BookingDetails from './BookingDetails';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../context/AuthProvider';
+import Cover from '../../components/shared/cover/Cover';
+const myAppointmentImg=`https://img.freepik.com/free-photo/young-handsome-physician-medical-robe-with-stethoscope_1303-17818.jpg?w=1380&t=st=1685498764~exp=1685499364~hmac=78483deb71f65efe41779aa38505a83c55123e3b71dc852e96d5f2fd879c9f67`
 
 const MyAppointment = () => {
-
 const {user}=useContext(AuthContext)
 
     const [myBooking,setMyBooking] = useState([]);
-    const url =`http://localhost:5000/bookings?email=${user.email}`;
-    console.log(url)
     useEffect(()=>{
-        fetch(url,{
-          method:"GET",
-          headers:{
-            "content-type":"application/json"
-          }
-        })
+        fetch(`http://localhost:5000/bookings?email=${user.email}`)
         .then((res)=>res.json())
         .then((data)=>setMyBooking(data))
         .catch((error)=>console.log(error.message))
@@ -68,10 +62,10 @@ const {user}=useContext(AuthContext)
 
   return (
     <div className='py-20'>
+      <Cover title="My Appointment" coverImg={myAppointmentImg}></Cover>
         <div className='container mx-auto'>
         <div className="overflow-x-auto w-full">
                 <table className="table w-full">
-                {/* head */}
                     <thead>
                       <tr>
                         <th>Image</th>
@@ -82,7 +76,6 @@ const {user}=useContext(AuthContext)
                         <th>Cancel</th>
                       </tr>
                     </thead>
-                    {/* body */}
                     <tbody>
                         {myBooking.map((booking)=><BookingDetails 
                             key={booking._id}

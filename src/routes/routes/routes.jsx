@@ -1,13 +1,14 @@
 import React from 'react'
-import {createBrowserRouter} from 'react-router-dom'
-import Main from '../../layout/Main'
-import Home from '../../pages/home/home/Home'
-import Login from '../../pages/login/Login'
-import Registration from '../../pages/registration/Registration'
-import ServicesDetails from '../../pages/services/ServicesDetails'
-import Booking from '../../pages/booking/Booking'
-import PrivetRoute from '../privetRoute/PrivetRoute'
-import MyAppointment from '../../pages/myBooking/MyAppointment'
+import {createBrowserRouter} from 'react-router-dom';
+// page import
+import Main from '../../layout/Main';
+import Login from '../../pages/login/Login';
+import Home from '../../pages/home/home/Home';
+import Booking from '../../pages/booking/Booking';
+import PrivetRoute from '../privetRoute/PrivetRoute';
+import MyAppointment from '../../pages/myBooking/MyAppointment';
+import Registration from '../../pages/registration/Registration';
+import ServicesDetails from '../../pages/services/ServicesDetails';
 
 const router = createBrowserRouter([
     {

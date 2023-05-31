@@ -4,14 +4,16 @@ import { FaMapMarkerAlt } from 'react-icons/fa';
 // react tab
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-import  "./Services.css"
+import  "./Services.css";
+import Overview from './Overview';
+
 const ServicesDetails = () => {
     const servicesData = useLoaderData();
     const {image,name,location,services} = servicesData;
     
   return (
       <div>
-          <div className="container mx-auto px-5">
+          <div className="max-w-[1140px] px-5 mx-auto">
               <div>
                   <div className="grid md:grid-cols-3 gap-10 bg-white p-10">
                       <div>
@@ -37,13 +39,13 @@ const ServicesDetails = () => {
                             <Tab>Reviews</Tab>
                             <Tab>Business Hours</Tab>
                           </TabList>
-
+                              
                           <TabPanel>
-                            
+                              <Overview servicesData={servicesData}></Overview>
                           </TabPanel>
-                          <TabPanel>
-                            <h2>Any content 2</h2>
-                          </TabPanel>
+                          <TabPanel>h</TabPanel>
+                          <TabPanel>u</TabPanel>
+                          <TabPanel>d</TabPanel>
                       </Tabs>
                   </div>
               </div>

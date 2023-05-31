@@ -1,15 +1,10 @@
 import React, { useEffect } from 'react'
 import { useLoaderData, useParams } from 'react-router-dom'
 import Swal from 'sweetalert2';
+
 const Booking = () => {
+
  const {id}=useParams();
- console.log(id)
-  // useEffect(()=>{
-  //   fetch(``)
-  //   .then((res)=>res.json())
-  //   .then((data)=>console.log(data))
-  // },[]) 
-  
   const handleBooking=(event)=>{
     event.preventDefault();
     const form = event.target;
