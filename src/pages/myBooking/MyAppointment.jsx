@@ -1,14 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react'
-import BookingDetails from './BookingDetails';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../context/AuthProvider';
+import BookingDetails from './BookingDetails';
 import Cover from '../../components/shared/cover/Cover';
 const myAppointmentImg=`https://img.freepik.com/free-photo/young-handsome-physician-medical-robe-with-stethoscope_1303-17818.jpg?w=1380&t=st=1685498764~exp=1685499364~hmac=78483deb71f65efe41779aa38505a83c55123e3b71dc852e96d5f2fd879c9f67`
 
 const MyAppointment = () => {
-const {user}=useContext(AuthContext)
 
+const {user}= useContext(AuthContext)
     const [myBooking,setMyBooking] = useState([]);
+    // specific user data load 
     useEffect(()=>{
         fetch(`http://localhost:5000/bookings?email=${user.email}`)
         .then((res)=>res.json())
@@ -16,6 +17,7 @@ const {user}=useContext(AuthContext)
         .catch((error)=>console.log(error.message))
     },[])
 
+    // user removeBooking
     const handleRemoveBooking=(id)=>{
       Swal.fire({
         title: 'Are you sure?',
@@ -44,7 +46,7 @@ const {user}=useContext(AuthContext)
         }
       })
 
-
+    // specific services data
       fetch(`http://localhost:5000/bookings/${id}`,{
         method:"DELETE",
         headers:{
@@ -53,8 +55,7 @@ const {user}=useContext(AuthContext)
         body:JSON.stringify(myBooking)
       })
       .then((res)=>res.json())
-      .then((data)=>{
-      })
+      .then((data)=>console.log(data))
       .catch((error)=>console.log(error.message))
       console.log(id)
     }

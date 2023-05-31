@@ -4,6 +4,7 @@ import Logo from '../../../assets/logo-1.png'
 import { AuthContext } from '../../../context/AuthProvider'
 
 const Header = () => {
+  
   const {user,logOut} = useContext(AuthContext);
   const userLogout=()=>{
     logOut()
@@ -12,6 +13,7 @@ const Header = () => {
         console.log(error.message)
       })
   }
+
   return (
     <div className='bg-transparent py-5 fixed z-10 bg-opacity-30 bg-base-100 w-full'>
         <div className='container mx-auto'>
