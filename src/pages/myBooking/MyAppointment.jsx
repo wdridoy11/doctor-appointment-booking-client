@@ -70,11 +70,10 @@ const {user}= useContext(AuthContext)
                     <thead>
                       <tr>
                         <th>Image</th>
-                        <th>Services</th>
                         <th>Name</th>
                         <th>Phone</th>
                         <th>Date</th>
-                        <th>Cancel</th>
+                        <th>Action</th>
                       </tr>
                     </thead>
                     <tbody>

@@ -33,6 +33,7 @@ const Registration = () => {
                     <h3 className='text-4xl font-bold mb-10 text-center text-[#40d0c6]'>Registration</h3>
                     <form onSubmit={handleSignup}>
                         <input className='w-full border-b border-[#ddd] mb-7 pb-2 text-base outline-none' type="name" name="name" id="name" placeholder='Enter your name' required/>
+                        <input className='file-input file-input-bordered' type="file" name="file" id="file" />
                         <input className='w-full border-b border-[#ddd] mb-7 pb-2 text-base outline-none' type="email" name="email" id="email" placeholder='Enter your email' required/>
                         <input className='w-full border-b border-[#ddd] mb-7 pb-2 text-base outline-none' type="password" name="password" id="password" placeholder='Enter your password' required/>
                         <div className='flex justify-between'>
