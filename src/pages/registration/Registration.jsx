@@ -36,7 +36,7 @@ const Registration = () => {
                         <input className='w-full border-b border-[#ddd] mb-7 pb-2 text-base outline-none' type="name" name="name" id="name" placeholder='Enter your name' required/>
                         <div className='mb-4'>
                             <label className='text-lg font-normal text-slate-500 mb-1 block' htmlFor="photoUpload">Your photo</label>
-                            <input className='file-input border-b border-[#40d0c6] text-lg font-normal text-slate-500 w-full' type="file" name="file" id="photoUpload" />
+                            <input className='file-input border-b border-[#40d0c6] text-lg font-normal text-slate-500 w-full' accept="image/gif, image/jpeg, image/png"  type="file" name="file" id="photoUpload" />
                         </div>
                         <input className='w-full border-b border-[#ddd] mb-7 pb-2 text-base outline-none' type="email" name="email" id="email" placeholder='Enter your email' required/>
                         <input className='w-full border-b border-[#ddd] mb-7 pb-2 text-base outline-none' type="password" name="password" id="password" placeholder='Enter your password' required/>

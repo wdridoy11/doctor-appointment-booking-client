@@ -2,8 +2,8 @@ import React from 'react'
 import { FaArrowRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-const Services = ({service}) => {
-  const {_id,image,name} = service;
+const Doctor = ({doctor}) => {
+  const {_id,image,name} = doctor;
   return (
     <div>
         <div>
@@ -22,4 +22,4 @@ const Services = ({service}) => {
   )
 }
 
-export default Services
+export default Doctor

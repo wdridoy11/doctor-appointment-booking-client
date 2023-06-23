@@ -7,9 +7,9 @@ import 'react-tabs/style/react-tabs.css';
 import  "./Services.css";
 import Overview from './Overview';
 
-const ServicesDetails = () => {
-    const servicesData = useLoaderData();
-    const {image,name,location,services} = servicesData;
+const DoctorDetails = () => {
+    const doctorData = useLoaderData();
+    const {image,name,location,services} = doctorData;
     
   return (
       <div>
@@ -54,4 +54,4 @@ const ServicesDetails = () => {
   )
 }
 
-export default ServicesDetails
+export default DoctorDetails
