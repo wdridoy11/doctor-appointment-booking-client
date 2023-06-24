@@ -19,7 +19,7 @@ const Header = () => {
         <div className='container mx-auto'>
             <div className='flex justify-between items-center'>
                 <div>
-                    <Link to={'/'}><img className='w-32 bg-white' src={Logo} alt="logo" /></Link>
+                    <Link to={'/'}><img className='w-32' src={Logo} alt="logo" /></Link>
                 </div>
                 <div className='flex gap-6 items-center'>
                     <Link className='text-base font-medium text-black' to={`/`}>Home</Link>
