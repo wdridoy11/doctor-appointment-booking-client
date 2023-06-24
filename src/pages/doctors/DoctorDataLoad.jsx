@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import Services from './Doctor';
-
+import Doctor from './Doctor'
 const DoctorDataLoad = () => {
 
 const [doctor,setDoctor] = useState([]);
 useEffect(()=>{
-    fetch(`http://localhost:5000/services`)
+    fetch(`http://localhost:5000/doctors`)
     .then((res)=>res.json())
     .then((data)=>setDoctor(data))
     .catch((error)=>console.log(error.message))
@@ -18,7 +17,7 @@ useEffect(()=>{
             <h1 className='text-5xl font-semibold text-center'>We Provide Assistance in <span className='text-[#40d0c6]'>Service</span> </h1>
         </div>
         <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-5 mt-12'>
-            {doctor.map((doctor)=><Services key={doctor._id} doctor={doctor}></Services>)}
+            {doctor.map((doctor)=><Doctor key={doctor._id} doctor={doctor}></Doctor>)}
         </div>
         </div>
     </div>

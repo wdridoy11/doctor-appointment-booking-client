@@ -1,7 +1,8 @@
 import React from 'react'
 import Banner from '../banner/Banner'
 import About from '../../about/About'
-import DoctorDataLoad from '../../services/DoctorDataLoad'
+import DoctorDataLoad from '../../doctors/DoctorDataLoad'
+
 
 const Home = () => {
   return (

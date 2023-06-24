@@ -4,7 +4,7 @@ import { FaMapMarkerAlt } from 'react-icons/fa';
 // react tab
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-import  "./Services.css";
+import  "./doctor.css";
 import Overview from './Overview';
 
 const DoctorDetails = () => {
@@ -41,7 +41,7 @@ const DoctorDetails = () => {
                           </TabList>
                               
                           <TabPanel>
-                              <Overview servicesData={servicesData}></Overview>
+                              <Overview doctorData={doctorData}></Overview>
                           </TabPanel>
                           <TabPanel>h</TabPanel>
                           <TabPanel>u</TabPanel>

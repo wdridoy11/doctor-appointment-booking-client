@@ -7,10 +7,8 @@ import Home from '../../pages/home/home/Home';
 import Booking from '../../pages/booking/Booking';
 import PrivetRoute from '../privetRoute/PrivetRoute';
 import Registration from '../../pages/registration/Registration';
-import ServicesDetails from '../../pages/services/ServicesDetails';
-
 import MyAppointment from '../../pages/dashboard/user/myBooking/MyAppointment';
-import DoctorDetails from '../../pages/services/DoctorDetails';
+import DoctorDetails from '../../pages/doctors/DoctorDetails';
 
 const router = createBrowserRouter([
     {
@@ -24,12 +22,12 @@ const router = createBrowserRouter([
             {
                 path:"doctors/:id",
                 element:<DoctorDetails></DoctorDetails>,
-                loader:({params})=>fetch(`http://localhost:5000/services/${params.id}`)
+                loader:({params})=>fetch(`http://localhost:5000/doctors/${params.id}`)
             },
             {
                 path:"booking/:id",
                 element:<PrivetRoute><Booking></Booking></PrivetRoute>,
-                loader:({params})=>fetch(`http://localhost:5000/services/${params.id}`)
+                loader:({params})=>fetch(`http://localhost:5000/bookings/${params.id}`)
             },
             {
                 path:"my_booking",

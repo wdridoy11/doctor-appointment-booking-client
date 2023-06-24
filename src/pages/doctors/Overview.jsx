@@ -1,9 +1,9 @@
 import React from 'react'
 const text =`Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam eum cum harum eveniet repudiandae dignissimos pariatur consequuntur, atque quia repellendus voluptates beatae excepturi unde tempore nobis consectetur. Dolorem minima ipsam distinctio hic facilis eius molestias minus sit quas quia, tempora error reiciendis porro similique deleniti mollitia ipsa harum laboriosam qui? Suscipit doloremque explicabo repudiandae, officia saepe deserunt fugiat, culpa amet tempora sapiente odio iusto minus, ullam minima iure rerum? Ducimus molestiae laboriosam sit quod, incidunt, eaque officiis, inventore omnis voluptates optio dolorem? Nesciunt, alias deleniti aliquid dolore perspiciatis neque atque cum sapiente, culpa adipisci laborum ipsum a necessitatibus ex doloribus!`
 
-const Overview = ({servicesData}) => {
-    const {about,education,work_experience, services,awards} = servicesData;
-    console.log(servicesData)
+const Overview = ({doctorData}) => {
+    const {about,education,work_experience, services,awards} = doctorData;
+    console.log(doctorData)
   return (
     <div className='pt-10 pb-20'>
         <div className=''>
