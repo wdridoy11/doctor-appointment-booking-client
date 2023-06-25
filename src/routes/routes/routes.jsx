@@ -9,6 +9,7 @@ import PrivetRoute from '../privetRoute/PrivetRoute';
 import Registration from '../../pages/registration/Registration';
 import MyAppointment from '../../pages/dashboard/user/myBooking/MyAppointment';
 import DoctorDetails from '../../pages/doctors/DoctorDetails';
+import About from '../../pages/about/About';
 
 const router = createBrowserRouter([
     {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
             {
                 path:"/",
                 element:<Home></Home>
+            },
+            {
+                path:"/about",
+                element:<About></About>
             },
             {
                 path:"doctors/:id",

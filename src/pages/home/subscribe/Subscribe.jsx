@@ -18,7 +18,7 @@ const Subscribe = () => {
                             placeholder='Enter your email'
                             required
                         />
-                        <button className='absolute right-0 btn rounded-full bg-black text-white font-medium'>Subscribe </button>
+                        <button className='absolute right-0 btn rounded-full bg-black text-white font-medium px-7'>Subscribe </button>
                     </form>
                     
                 </div>
