@@ -6,13 +6,14 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import  "./doctor.css";
 import Overview from './Overview';
+import Cover from '../../components/shared/cover/Cover';
 
 const DoctorDetails = () => {
     const doctorData = useLoaderData();
     const {image,name,location,services} = doctorData;
-    
   return (
       <div>
+        <Cover title="Doctor Details" coverImg={image}></Cover>
           <div className="max-w-[1140px] px-5 mx-auto">
               <div>
                   <div className="grid md:grid-cols-3 gap-10 bg-white p-10">
