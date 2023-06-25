@@ -26,6 +26,21 @@ const Footer = () => {
                     <Link className='text-base font-medium text-black' to={`/`}>Contact</Link>
                 </div>
             </div>
+            <div>
+              <h3>Follow US</h3>
+              <Link>
+                  
+              </Link>
+              <Link>
+                  
+              </Link>
+              <Link>
+                  
+              </Link>
+              <Link>
+                  
+              </Link>
+            </div>
           </div>
       </div>
     </div>
