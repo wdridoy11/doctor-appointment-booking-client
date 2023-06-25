@@ -10,6 +10,11 @@ import Registration from '../../pages/registration/Registration';
 import MyAppointment from '../../pages/dashboard/user/myBooking/MyAppointment';
 import DoctorDetails from '../../pages/doctors/DoctorDetails';
 import About from '../../pages/about/About';
+import Dashboard from '../../layout/Dashboard';
+import ManageUser from '../../pages/dashboard/admin/manageUser/ManageUser';
+import ManageAppointment from '../../pages/dashboard/admin/manageAppointment/ManageAppointment';
+import AddAppointment from '../../pages/dashboard/doctor/addAppointment/AddAppointment';
+import ManagePatient from '../../pages/dashboard/doctor/managePatient/ManagePatient';
 
 const router = createBrowserRouter([
     {
@@ -46,6 +51,28 @@ const router = createBrowserRouter([
             {
                 path:"registration",
                 element:<Registration></Registration>
+            }
+        ]
+    },
+    {
+        path:"dashboard",
+        element:<Dashboard></Dashboard>,
+        children:[
+            {
+                path:"manage_user",
+                element:<ManageUser></ManageUser>
+            },
+            {
+                path:"Manage_appointment",
+                element:<ManageAppointment></ManageAppointment>
+            },
+            {
+                path:"add_appointment",
+                element:<AddAppointment></AddAppointment>
+            },
+            {
+                path:"manage_patient",
+                element:<ManagePatient></ManagePatient>
             }
         ]
     }
