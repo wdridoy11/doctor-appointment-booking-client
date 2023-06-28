@@ -146,7 +146,7 @@ const [servicesData,setServicesData] = useState([]);
                 </div>
                   <h3 className='text-2xl font-bold text-black mt-7'>{services.title}</h3>
                   <h3 className='text-base font-normal text-black'>{services.time}</h3>
-                  <label onClick={()=>handleModul(services.id)} htmlFor="my-modal-3" className='px-5 py-2 mt-10 bg-[#40d0c6] inline-block text-lg font-semibold text-white rounded-md  gap-2 hover:bg-black duration-500'>open modal</label>
+                  <label onClick={()=>handleModul(services.id)} htmlFor="my-modal-3" className='px-5 py-2 mt-10 bg-[#40d0c6] inline-block text-lg font-semibold text-white rounded-md cursor-pointer gap-2 hover:bg-black duration-500'>Booking Now</label>
               </div>)}
           </div>
           {/* modul data */}

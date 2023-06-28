@@ -3,7 +3,7 @@ import React from 'react'
 const Subscribe = () => {
   return (
     <div>
-        <div className='container mx-auto bg-[#40d0c6] p-20 rounded-[40px]'>
+        <div className='container mx-auto bg-[#40d0c6] p-20 rounded-[40px] mb-20'>
             <div className='grid md:grid-cols-2 gap-3'>
                 <div>
                     <h1 className='text-4xl font-bold text-white'>Subscribe To <br/>Our Newsletter</h1>
