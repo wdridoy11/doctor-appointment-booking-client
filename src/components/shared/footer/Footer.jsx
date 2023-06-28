@@ -1,4 +1,5 @@
 import React from 'react'
+import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import logo from '../../../assets/logo-1.png'
 import footer from '../../../assets/footer.jpg'
@@ -28,18 +29,20 @@ const Footer = () => {
             </div>
             <div>
               <h3>Follow US</h3>
-              <Link>
-                  
-              </Link>
-              <Link>
-                  
-              </Link>
-              <Link>
-                  
-              </Link>
-              <Link>
-                  
-              </Link>
+              <div className='flex items-center gap-3'>
+                  <Link className='border p-3 rounded-full text-black' to={`https://web.facebook.com/wdridoy11`} target='_blank'>
+                      <FaFacebookF className='text-xl'></FaFacebookF>
+                  </Link>
+                  <Link className='border p-3 rounded-full text-black' to={`https://twitter.com/wdridoy11`} target='_blank'>
+                      <FaTwitter className='text-xl'></FaTwitter>
+                  </Link>
+                  <Link className='border p-3 rounded-full text-black' to={`https://www.instagram.com/wdridoy11/`} target='_blank'>
+                      <FaInstagram className='text-xl'></FaInstagram>
+                  </Link>
+                  <Link className='border p-3 rounded-full text-black' to={`https://www.linkedin.com/in/wdridoy11/`} target='_blank'>
+                      <FaLinkedin className='text-xl'></FaLinkedin>
+                  </Link>
+              </div>
             </div>
           </div>
       </div>

@@ -137,16 +137,6 @@ const [servicesData,setServicesData] = useState([]);
             <img className='w-full h-96 object-cover object-top rounded-lg' src={image} alt="" />
           </div>
         </div>
-        <div className='py-20'>
-          <h4 className='text-xl font-normal text-orange-500 text-center'>Available Services on April 30, 2022</h4>
-          <h3 className='text-4xl font-bold text-black text-center mt-3'>Please select a service.</h3>
-          <div className='grid grid-cols-3 gap-5 mt-8'>
-              {selectService.map((services,index)=><div key={index} className='shadow-md p-5 rounded-lg flex items-center gap-3'>
-                  <img className='w-16 h-16 object-cover' src={services.icon} alt="services icon" />
-                  <h3 className='text-2xl font-bold text-black'>{services.title}</h3>
-              </div>)}
-          </div>
-        </div>
         <div className='pt-10 pb-20'>
           <h3 className='text-4xl font-bold text-black text-center mt-3'>Please select a service.</h3>
           <div className='grid grid-cols-3 gap-5 mt-8'>
@@ -156,7 +146,7 @@ const [servicesData,setServicesData] = useState([]);
                 </div>
                   <h3 className='text-2xl font-bold text-black mt-7'>{services.title}</h3>
                   <h3 className='text-base font-normal text-black'>{services.time}</h3>
-                  <label onClick={()=>handleModul(services.id)} htmlFor="my-modal-3" className='px-5 py-2 mt-10 bg-[#40d0c6] inline-block text-lg font-semibold text-white rounded-md  gap-2 hover:bg-black duration-500'>open modal</label>
+                  <label onClick={()=>handleModul(services.id)} htmlFor="my-modal-3" className='px-5 py-2 mt-10 bg-[#40d0c6] inline-block text-lg font-semibold text-white rounded-md cursor-pointer gap-2 hover:bg-black duration-500'>Booking Now</label>
               </div>)}
           </div>
           {/* modul data */}

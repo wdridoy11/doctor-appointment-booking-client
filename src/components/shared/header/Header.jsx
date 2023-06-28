@@ -23,12 +23,13 @@ const Header = () => {
                 </div>
                 <div className='flex gap-6 items-center'>
                     <Link className='text-base font-medium text-black' to={`/`}>Home</Link>
-                    <Link className='text-base font-medium text-black' to={`/`}>About</Link>
-                    <Link className='text-base font-medium text-black' to={`/`}>Services</Link>
+                    <Link className='text-base font-medium text-black' to={`/about`}>About</Link>
+                    <Link className='text-base font-medium text-black' to={`/`}>Doctors</Link>
                     <Link className='text-base font-medium text-black' to={`/`}>Blog</Link>
                     <Link className='text-base font-medium text-black' to={`/`}>Contact</Link>
                      {user ? <div>
-                        <Link className='text-base font-medium bg-[#40d0c6] text-white px-7 py-2 rounded-full hover:bg-black duration-500 mr-2' to={'/my_appointment'}>My Appointment</Link>
+                        {/* <Link className='text-base font-medium bg-[#40d0c6] text-white px-7 py-2 rounded-full hover:bg-black duration-500 mr-2' to={'/my_booking'}>My Appointment</Link> */}
+                        <Link className='text-base font-medium text-black' to={`/dashboard`}>Dashboard</Link>
                         <Link className='text-base font-medium bg-[#40d0c6] text-white px-7 py-2 rounded-full hover:bg-black duration-500' onClick={userLogout}>Logout</Link>
                     </div>:
                     <Link className='text-base font-medium bg-[#40d0c6] text-white px-7 py-2 rounded-full hover:bg-black duration-500' to={`/login`}>Login</Link>
