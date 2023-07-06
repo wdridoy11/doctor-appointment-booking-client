@@ -4,7 +4,7 @@ const DoctorDataLoad = () => {
 
 const [doctor,setDoctor] = useState([]);
 useEffect(()=>{
-    fetch(`http://localhost:5000/doctors`)
+    fetch(`https://doctor-booking-server.vercel.app/doctors`)
     .then((res)=>res.json())
     .then((data)=>setDoctor(data))
     .catch((error)=>console.log(error.message))
