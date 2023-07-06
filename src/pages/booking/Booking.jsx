@@ -95,7 +95,7 @@ const [servicesData,setServicesData] = useState([]);
     const phone = form.tel.value;
     const bookingUser={date,time,name,email,phone,}
 
-    fetch(`http://localhost:5000/bookings`,{
+    fetch(`https://doctor-booking-server.vercel.app/bookings`,{
       method:"POST",
       headers:{
         "content-type":"application/json"

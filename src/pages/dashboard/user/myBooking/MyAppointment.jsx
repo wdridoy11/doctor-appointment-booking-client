@@ -11,7 +11,7 @@ const {user}= useContext(AuthContext)
     const [myBooking,setMyBooking] = useState([]);
     // specific user data load 
     useEffect(()=>{
-        fetch(`http://localhost:5000/bookings?email=${user.email}`)
+        fetch(`https://doctor-booking-server.vercel.app/bookings?email=${user.email}`)
         .then((res)=>res.json())
         .then((data)=>setMyBooking(data))
         .catch((error)=>console.log(error.message))
@@ -29,7 +29,7 @@ const {user}= useContext(AuthContext)
         confirmButtonText: 'Yes, delete it!'
       }).then((result) => {
         if (result.isConfirmed) {
-          fetch(`http://localhost:5000/bookings/${id}`)
+          fetch(`https://doctor-booking-server.vercel.app/bookings/${id}`)
           .then((res)=>res.json())
           .then((data)=>{
             if(data.deletedCount>0){
@@ -47,7 +47,7 @@ const {user}= useContext(AuthContext)
       })
 
     // specific services data
-      fetch(`http://localhost:5000/bookings/${id}`,{
+      fetch(`https://doctor-booking-server.vercel.app/bookings/${id}`,{
         method:"DELETE",
         headers:{
           'content-type':"application/json"
