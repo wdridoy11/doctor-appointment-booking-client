@@ -4,6 +4,7 @@ import About from '../../about/About'
 import DoctorDataLoad from '../../doctors/DoctorDataLoad'
 import Subscribe from '../subscribe/Subscribe'
 import Blogs from '../../blogs/Blogs'
+import Emergency from '../emergency/Emergency'
 
 
 const Home = () => {
@@ -12,6 +13,7 @@ const Home = () => {
         {/* <Banner></Banner> */}
         <About></About>
         <DoctorDataLoad></DoctorDataLoad>
+        <Emergency></Emergency>
         <Blogs></Blogs>
         <Subscribe></Subscribe>
     </div>

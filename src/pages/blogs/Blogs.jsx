@@ -20,7 +20,7 @@ const blogContent=[
 
 
   return (
-    <div className='py-20'>
+    <div className='pt-20'>
         <div className='container mx-auto'>
         <h1 className='text-5xl font-semibold text-center'>Our<span className='text-[#40d0c6]'> Blogs</span> </h1>
             <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10'>

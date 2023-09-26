@@ -15,7 +15,7 @@ const Header = () => {
   }
 
   return (
-    <div className='bg-transparent py-5 fixed z-10 bg-opacity-30 bg-base-100 w-full'>
+    <div className='bg-transparent py-5 fixed z-10 bg-opacity-30 bg-base-100 w-full backdrop-blur-sm'>
         <div className='container mx-auto'>
             <div className='flex justify-between items-center'>
                 <div>
