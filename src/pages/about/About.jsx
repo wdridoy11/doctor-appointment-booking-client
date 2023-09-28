@@ -4,7 +4,7 @@ import about2 from '../../assets/about-02.jpg'
 import { Link } from 'react-router-dom'
 const About = () => {
   return (
-    <div>
+    <div className='pb-16'>
         <div className='container mx-auto'>
             <div className='grid lg:grid-cols-2 items-center gap-10'>
                 <div className='grid grid-cols-2 gap-10'>

@@ -28,7 +28,7 @@ const DoctorDetails = () => {
                               <p className="text-base font-normal mb-2">{location}</p>
                           </div>
                           <div className='flex gap-2 items-center mt-4'>
-                            {services.map((service,index)=><button key={index} className='py-2 px-5 border rounded-md font-semibold text-base'>{service}</button>)}
+                            {/* {services.map((service,index)=><button key={index} className='py-2 px-5 border rounded-md font-semibold text-base'>{service}</button>)} */}
                           </div>
                       </div>
                   </div>

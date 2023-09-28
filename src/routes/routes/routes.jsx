@@ -15,6 +15,7 @@ import MyAppointment from '../../pages/dashboard/user/myBooking/MyAppointment';
 import ManagePatient from '../../pages/dashboard/doctor/managePatient/ManagePatient';
 import AddAppointment from '../../pages/dashboard/doctor/addAppointment/AddAppointment';
 import ManageAppointment from '../../pages/dashboard/admin/manageAppointment/ManageAppointment';
+import Error from '../../pages/errorPage/Error';
 
 const router = createBrowserRouter([
     {
@@ -32,12 +33,12 @@ const router = createBrowserRouter([
             {
                 path:"doctors/:id",
                 element:<DoctorDetails></DoctorDetails>,
-                loader:({params})=>fetch(`https://doctor-booking-server.vercel.app/doctors/${params.id}`)
+                loader:({params})=>fetch(`http://localhost:5000/doctors/${params.id}`)
             },
             {
                 path:"booking/:id",
                 element:<PrivetRoute><Booking></Booking></PrivetRoute>,
-                loader:({params})=>fetch(`https://doctor-booking-server.vercel.app/bookings/${params.id}`)
+                loader:({params})=>fetch(`http://localhost:5000/bookings/${params.id}`)
             },
             {
                 path:"my_booking",
@@ -79,6 +80,10 @@ const router = createBrowserRouter([
                 element:<ManagePatient></ManagePatient>
             }
         ]
+    },
+    {
+        path:"*",
+        element:<Error></Error>
     }
 ])
 

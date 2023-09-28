@@ -3,7 +3,6 @@ const text =`Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam eum 
 
 const Overview = ({doctorData}) => {
     const {about,education,work_experience, services,awards} = doctorData;
-    console.log(doctorData)
   return (
     <div className='pt-10 pb-20'>
         <div className=''>
