@@ -5,6 +5,7 @@ import DoctorDataLoad from '../../doctors/DoctorDataLoad'
 import Subscribe from '../subscribe/Subscribe'
 import Blogs from '../../blogs/Blogs'
 import Emergency from '../emergency/Emergency'
+import Counter from '../counter/Counter'
 
 
 const Home = () => {
@@ -13,6 +14,7 @@ const Home = () => {
         {/* <Banner></Banner> */}
         <About></About>
         <DoctorDataLoad></DoctorDataLoad>
+        <Counter></Counter>
         <Emergency></Emergency>
         <Blogs></Blogs>
         <Subscribe></Subscribe>
