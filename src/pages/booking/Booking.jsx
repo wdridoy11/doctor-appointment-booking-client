@@ -9,70 +9,7 @@ const bookingCover =`https://img.freepik.com/free-photo/stethoscope-copy-space_2
 
 const Booking = () => {
 
-  const selectService=[
-    {
-      icon:"https://cdn-icons-png.flaticon.com/512/4125/4125869.png",
-      title:"Teeth Orthodontics"
-    },
-    {
-      icon:"https://cdn-icons-png.flaticon.com/512/3124/3124597.png",
-      title:"Cosmetic Dentisty"
-    },
-    {
-      icon:"https://cdn-icons-png.flaticon.com/512/3124/3124597.png",
-      title:"Teeth Cleaning"
-    },
-    {
-      icon:"https://cdn-icons-png.flaticon.com/512/3124/3124597.png",
-      title:"Cavity Protection"
-    },
-    {
-      icon:"https://cdn-icons-png.flaticon.com/512/3124/3124597.png",
-      title:"Pediatric Dental"
-    },
-    {
-      icon:"https://cdn-icons-png.flaticon.com/512/3124/3124597.png",
-      title:"Oral Surgery"
-    }
-  ];
-  const availableSlots=[
-    {
-      id: "647700e99dbc47631ab75280",
-      icon:"https://cdn-icons-png.flaticon.com/512/4125/4125869.png",
-      title:"Teeth Orthodontics",
-      time:"8:00 AM - 9:00 AM"
-    },
-    {
-      id: "647700ff863de23822205476",
-      icon:"https://cdn-icons-png.flaticon.com/512/3124/3124597.png",
-      title:"Cosmetic Dentisty",
-      time:"10:05 AM - 11:30 AM"
-    },
-    {
-      id: "647700ff4a9f56973d99d8db",
-      icon:"https://cdn-icons-png.flaticon.com/512/3124/3124597.png",
-      title:"Teeth Cleaning",
-      time:"12:00 PM - 1:00 PM"
-    },
-    {
-      id: "647700ff766caef5ca0f3085",
-      icon:"https://cdn-icons-png.flaticon.com/512/3124/3124597.png",
-      title:"Cavity Protection",
-      time:"2:00 PM - 3:00 PM"
-    },
-    {
-      id: "647700ff6ee64e95a809d735",
-      icon:"https://cdn-icons-png.flaticon.com/512/3124/3124597.png",
-      title:"Pediatric Dental",
-      time:"3:20 PM - 4:20 PM"
-    },
-    {
-      id: "647700ffd6f740651c97dc52",
-      icon:"https://cdn-icons-png.flaticon.com/512/3124/3124597.png",
-      title:"Oral Surgery",
-      time:"5:20 PM - 5:20 PM"
-    }
-  ]
+
   const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 
   // user login info
@@ -115,12 +52,6 @@ const [servicesData,setServicesData] = useState([]);
       }
     })
   }
-  // handleModul
-  const handleModul =(id)=>{
-    const servicesFilter =  availableSlots.find((services)=>services.id === id);
-    setServicesData(servicesFilter);
-  }
-
   // date manage
   const month = months[value.getMonth()];
   const orderDate = `${month} ${value.getDay()}, ${value.getFullYear()}`
@@ -129,45 +60,44 @@ const [servicesData,setServicesData] = useState([]);
     <div>
       <Cover coverImg={bookingCover} title="Appointment"></Cover>
       <div className='container mx-auto px-5'>
-        <div className='grid md:grid-cols-2 items-center gap-7'>
-          <div className='mx-auto'>
-              <Calendar onChange={onChange} value={value} />
-          </div>
           <div>
-            <img className='w-full h-96 object-cover object-top rounded-lg' src={image} alt="" />
-          </div>
-        </div>
-        <div className='pt-10 pb-20'>
-          <h3 className='text-4xl font-bold text-black text-center mt-3'>Please select a service.</h3>
-          <div className='grid grid-cols-3 gap-5 mt-8'>
-              {availableSlots.map((services)=><div key={services.id} className='shadow-md py-12 px-10 rounded-lg gap-3 text-center'>
-                <div className='bg-[#40d0c6] w-20 p-3 rounded-full mx-auto'>
-                  <img className='object-cover mx-auto' src={services.icon} alt="services icon" />
-                </div>
-                  <h3 className='text-2xl font-bold text-black mt-7'>{services.title}</h3>
-                  <h3 className='text-base font-normal text-black'>{services.time}</h3>
-                  <label onClick={()=>handleModul(services.id)} htmlFor="my-modal-3" className='px-5 py-2 mt-10 bg-[#40d0c6] inline-block text-lg font-semibold text-white rounded-md cursor-pointer gap-2 hover:bg-black duration-500'>Booking Now</label>
-              </div>)}
-          </div>
-          {/* modul data */}
-          <div>
-              <input type="checkbox" id="my-modal-3" className="modal-toggle" />
-              <div className="modal">
-                <div className="modal-box relative">
-                  <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                    <form onSubmit={handleBooking}>
-                      <h3 className='text-2xl font-bold text-black text-center mb-5 pt-5'>{servicesData.title}</h3>
-                      <input type="text" name='date' id="date" className="w-full input input-bordered mb-4" defaultValue={orderDate} disabled/>                
-                      <input type="text" name='time' id="time" className="w-full input input-bordered mb-4"  defaultValue={servicesData.time} disabled/>                
-                      <input type="email" name='email' id='email' className="w-full input input-bordered mb-4" defaultValue={user?.email} disabled/>                  
-                      <input type="text" name='name' id="name" className="w-full input input-bordered mb-4" placeholder="Your Name" required/>
-                      <input type="tel" name='tel' id='tel' className="w-full input input-bordered mb-4" placeholder="Your Phone" required/>
-                      <input type="submit" className='bg-[#40d0c6] px-10 py-3 font-medium rounded-md text-white cursor-pointer hover:bg-black duration-500' value="Booking" />               
-                    </form>
-                </div>
+              <div>
+                  <h3 className='text-2xl font-semibold mb-3'>Select Available Slots</h3>
+                  <div className='grid grid-cols-3 gap-5 pb-20'>
+                      <div className='col-span-2'>
+                        <div className='grid grid-cols-3 gap-5'>
+                          <div className='text-center'>
+                              <h3 className='text-center text-xl font-semibold mb-3'>Morning</h3>
+                              <div className='flex flex-col'>
+                                  <button className='booking-time-btn'>09:00 - 09:30</button>
+                                  <button className='booking-time-btn'>10:00 - 10:30</button>
+                                  <button className='booking-time-btn'>11:00 - 11:30</button>
+                              </div>
+                          </div>
+                          <div>
+                              <h3 className='text-center text-xl font-semibold mb-3'>Afternoon</h3>
+                              <div className='flex flex-col'>
+                                  <button className='booking-time-btn'>12:00 - 12:30</button>
+                                  <button className='booking-time-btn'>01:00 - 01:30</button>
+                                  <button className='booking-time-btn'>02:00 - 02:30</button>
+                              </div>
+                          </div>
+                          <div>
+                              <h3 className='text-center text-xl font-semibold mb-3'>Evening</h3>
+                              <div className='flex flex-col'>
+                                  <button className='booking-time-btn'>04:00 - 04:30</button>
+                                  <button className='booking-time-btn'>05:00 - 05:30</button>
+                                  <button className='booking-time-btn'>06:00 - 06:30</button>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className='col-span-1 border'>
+
+                      </div>
+                  </div>
               </div>
           </div>
-        </div>
       </div>
     </div>
   )
