@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { FaMapMarkerAlt } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
@@ -11,87 +12,23 @@ const bookingCover =`https://img.freepik.com/free-photo/stethoscope-copy-space_2
 
 
 const Booking = () => {
-    
-  const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-
   // user login info
   const {user} = useContext(AuthContext)
     // doctor data load
-  const doctorDetails = useLoaderData();
-  const {image}=doctorDetails;
-
-  // calendar value and service data
-  // const [value, onChange] = useState(new Date());
-  const [bookingTime, setBookingTime] = useState();
-  // handle booking send data mongodb database
-  const handleBookingTime=(event)=>{
-    event.preventDefault();
-    const bookingTime = event.target.value;
-    setBookingTime(bookingTime);
-    // console.log(bookingTime)
-    
-
-    // fetch(`https://doctor-booking-server.vercel.app/bookings`,{
-    //   method:"POST",
-    //   headers:{
-    //     "content-type":"application/json"
-    //   },
-    //   body:JSON.stringify(bookingUser)
-    // })
-    // .then((res)=>res.json())
-    // .then((data)=>{
-    //   console.log(data)
-    //   if(data.insertedId){
-    //     form.reset();
-    //     Swal.fire(
-    //       'Congratulation!',
-    //       'Your appointment booking successful',
-    //       'success'
-    //     )
-    //   }
-    // })
-  }
-  // date manage
-  // const month = months[value.getMonth()];
-  // const orderDate = `${month} ${value.getDay()}, ${value.getFullYear()}`
+  const doctorData = useLoaderData();
+  const {image,name,location}=doctorData;
   const { register, handleSubmit,reset,watch,formState: { errors },} = useForm()
-
   const onSubmit = (data) => console.log(data)
+
   return (
     <div>
       <Cover coverImg={bookingCover} title="Appointment"></Cover>
       <div className='container mx-auto px-5'>
           <div>
               <div>
-                  <h3 className='text-2xl font-semibold mb-3'>Select Available Slots</h3>
-                  <div className='grid grid-cols-3 gap-5 pb-20'>
+                  <h3 className='text-2xl font-semibold mb-3'>Welcome To Booking Page</h3>
+                  <div className='grid grid-cols-3 gap-10 pb-20'>
                       <div className='col-span-2'>
-                        {/* <div className='grid grid-cols-3 gap-5'>
-                          <div className='text-center'>
-                              <h3 className='text-center text-xl font-semibold mb-3'>Morning</h3>
-                              <div className='flex flex-col'>
-                                  <button className='booking-time-btn' value={'09:00 - 09:30'} onClick={handleBookingTime}>09:00 - 09:30</button>
-                                  <button className='booking-time-btn' value={'10:00 - 10:30'} onClick={handleBookingTime}>10:00 - 10:30</button>
-                                  <button className='booking-time-btn' value={'11:00 - 11:30'} onClick={handleBookingTime}>11:00 - 11:30</button>
-                              </div>
-                          </div>
-                          <div>
-                              <h3 className='text-center text-xl font-semibold mb-3'>Afternoon</h3>
-                              <div className='flex flex-col'>
-                                  <button className='booking-time-btn' value={'12:00 - 12:30'} onClick={handleBookingTime}>12:00 - 12:30</button>
-                                  <button className='booking-time-btn' value={'01:00 - 01:30'} onClick={handleBookingTime}>01:00 - 01:30</button>
-                                  <button className='booking-time-btn' value={'02:00 - 02:30'} onClick={handleBookingTime}>02:00 - 02:30</button>
-                              </div>
-                          </div>
-                          <div>
-                              <h3 className='text-center text-xl font-semibold mb-3'>Evening</h3>
-                              <div className='flex flex-col'>
-                                  <button className='booking-time-btn' value={'04:00 - 04:30'} onClick={handleBookingTime}>04:00 - 04:30</button>
-                                  <button className='booking-time-btn' value={'05:00 - 05:30'} onClick={handleBookingTime}>05:00 - 05:30</button>
-                                  <button className='booking-time-btn' value={'06:00 - 06:30'} onClick={handleBookingTime}>06:00 - 06:30</button>
-                              </div>
-                          </div>
-                        </div> */}
                         <div className='mt-5'>
                             <form onSubmit={handleSubmit(onSubmit)}>
                                 <div>
@@ -150,8 +87,17 @@ const Booking = () => {
                             </form>
                         </div>
                       </div>
-                      <div className='col-span-1 border'>
-
+                      <div className='col-span-1 md:pt-12'>
+                            <div className='shadow-md rounded-lg'>
+                                <img className='rounded-t-md w-full h-[300px] object-cover object-top' src={image} alt={name} />
+                                <div className='px-4 pt-4 pb-6'>
+                                    <h3 className='text-2xl font-medium mb-2'>{name}</h3>
+                                    <div className='flex gap-2 text-[#6C6B6B] items-center'>
+                                        <p><FaMapMarkerAlt></FaMapMarkerAlt></p>
+                                        <p className="text-base font-normal">{location}</p>
+                                    </div>
+                                </div>
+                            </div>
                       </div>
                   </div>
               </div>
