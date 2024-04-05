@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/*  */
+/* Appointment page booking time btn design */
 .booking-time-btn{
     @apply text-base font-medium border border-[#40d0c6] text-[#40d0c6] px-10 py-2 rounded-md 
     hover:bg-[#40d0c6] hover:text-white duration-500 mb-2
