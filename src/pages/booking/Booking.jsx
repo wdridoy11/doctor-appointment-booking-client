@@ -1,7 +1,6 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, } from 'react';
 import { FaMapMarkerAlt } from 'react-icons/fa';
 import Swal from 'sweetalert2';
-import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import { useForm, SubmitHandler } from "react-hook-form"
 
@@ -10,15 +9,23 @@ import Cover from '../../components/shared/cover/Cover';
 import { AuthContext } from '../../context/AuthProvider';
 const bookingCover =`https://img.freepik.com/free-photo/stethoscope-copy-space_23-2147652347.jpg?w=1380&t=st=1685502964~exp=1685503564~hmac=3401485f1b88a73e110d94f720fac2311403fa16ff197f7c70f6da339d9056fb`
 
-
 const Booking = () => {
-  // user login info
-  const {user} = useContext(AuthContext)
+    // user login info
+    const {user} = useContext(AuthContext)
+    
+  // current date
+  const currentDate = new Date();
+  const currentDateISOString = currentDate.toISOString().slice(0, 10);
+
     // doctor data load
   const doctorData = useLoaderData();
   const {image,name,location}=doctorData;
-  const { register, handleSubmit,reset,watch,formState: { errors },} = useForm()
-  const onSubmit = (data) => console.log(data)
+  const { register, handleSubmit, setError,reset,watch,formState: { errors }} = useForm()
+ 
+  const onSubmit = (data) => {
+    console.log(data)
+  }
+
 
   return (
     <div>
@@ -35,21 +42,24 @@ const Booking = () => {
                                     <div className='grid md:grid-cols-2 gap-5'>
                                         <div>
                                             <label className='block mb-1'>First Name</label>
-                                            <input className='w-full border border-[#ddd] p-2 rounded-sm text-base    outline-none' {...register("firstName",{required: true})}/>
+                                            <input className='w-full border border-[#ddd] p-2 rounded-sm text-base outline-none' {...register("firstName",{required: true})}/>
+                                            {errors.firstName && <p className='text-red-600'>This field is required</p>}
                                         </div>
                                         <div>
                                             <label className='block mb-1'>Last Name</label>
-                                            <input className='w-full border border-[#ddd] p-2 rounded-sm text-base    outline-none' {...register("lastName",{required: true})}/>
+                                            <input className='w-full border border-[#ddd] p-2 rounded-sm text-base outline-none' {...register("lastName",{required: true})}/>
+                                            {errors.lastName && <p className='text-red-600'>This field is required</p>}
                                         </div>
                                     </div>
                                     <div className='grid md:grid-cols-2 gap-5 mt-3'>
                                         <div>
                                             <label className='block mb-1'>Email</label>
                                             <input type='email' className='w-full border border-[#ddd] p-2 rounded-sm text-base outline-none' {...register("email",{required: true})}/>
+                                            {errors.email && <p className='text-red-600'>This field is required</p>}
                                         </div>
                                         <div>
                                           <label className='block mb-1'>Gender Selection</label>
-                                          <select className='w-full border border-[#ddd] p-2 rounded-sm text-base    outline-none' {...register("gender")}>
+                                          <select className='w-full border border-[#ddd] p-2 rounded-sm text-base outline-none' {...register("gender")}>
                                             <option value="female">Female</option>
                                             <option value="male">Male</option>
                                             <option value="other">Other</option>
@@ -59,11 +69,12 @@ const Booking = () => {
                                     <div className='grid md:grid-cols-2 gap-5 mt-3'>
                                         <div>
                                             <label className='block mb-1'>Date</label>
-                                            <input type='date' className='w-full border border-[#ddd] p-2 rounded-sm text-base outline-none' {...register("date",{required: true})}/>
+                                            <input type='date' min={currentDateISOString} className='w-full border border-[#ddd] p-2 rounded-sm text-base outline-none' {...register("date",{required: true})}/>
+                                            {errors.date && <p className='text-red-600'>This field is required</p>}
                                         </div>
                                         <div>
                                             <label className='block mb-1'>Gender Selection</label>
-                                            <select className='w-full border border-[#ddd] p-2 rounded-sm           text-base outline-none' {...register("time")}>
+                                            <select className='w-full border border-[#ddd] p-2 rounded-sm text-base outline-none' {...register("time")}>
                                                 <option value="09:00 - 09:30 AM">09:00 - 09:30 AM</option>
                                                 <option value="10:00 - 10:30 AM">10:00 - 10:30 AM</option>
                                                 <option value="11:00 - 11:30 AM">11:00 - 11:30 AM</option>
@@ -79,7 +90,7 @@ const Booking = () => {
                                     <div className='mt-3 mb-5'>
                                         <div>
                                             <label className='block mb-1'>Message or Problem</label>
-                                            <textarea className='w-full border border-[#ddd] p-2 rounded-sm text-base outline-none' {...register("date",{required: true})} cols="30" rows="5"></textarea>
+                                            <textarea className='w-full border border-[#ddd] p-2 rounded-sm text-base outline-none' {...register("message",{required: true})} cols="30" rows="5"></textarea>
                                         </div>
                                     </div>
                                 </div>
