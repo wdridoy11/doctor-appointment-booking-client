@@ -1,5 +1,6 @@
 import React from 'react'
-import AppoinmentRequast from '../AppoinmentRequast'
+import AppoinmentRequast from './AppoinmentRequast'
+
 
 const AppoinmentRespons = () => {
   return (

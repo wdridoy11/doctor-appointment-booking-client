@@ -5,8 +5,9 @@ import Header from '../components/DashboardComponents/Header';
 import AppoinmentBoard from '../pages/dashboard/doctor/appoinmentBoard/AppoinmentBoard';
 import AppoinmentSummaey from '../pages/dashboard/doctor/patientsDetails/AppoinmentSummaey';
 import AppoinmentRespons from '../pages/dashboard/doctor/appoinmentRespons/AppoinmentRespons';
+import { Outlet } from 'react-router-dom';
 
-function Dashboard() {
+const Dashboard=()=> {
 
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -23,16 +24,7 @@ function Dashboard() {
 
         <main>
           <div className="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
-
-            {/* Cards */}
-            {/* <div className="grid grid-cols-12 gap-6"> */}
-              {/* <AppoinmentBoard />
-              <AppoinmentSummaey />
-              <AppoinmentInfo /> */}
-            {/* </div> */}
-            <AppoinmentBoard />
-            <AppoinmentSummaey />
-            <AppoinmentRespons />
+          <Outlet></Outlet>
 
           </div>
         </main>

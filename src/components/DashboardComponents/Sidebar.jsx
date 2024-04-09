@@ -101,23 +101,23 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
               <span className="lg:hidden lg:sidebar-expanded:block 2xl:block">Pages</span>
             </h3>
             <ul className="mt-3">
-              <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 bg-[#40d0c6]`}>
-                <Link to="/dashboard">
+              <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 `}>
+                <NavLink to={`/dashboard/doctor`}>
                     <div className="flex items-center">
                         <FontAwesomeIcon className='text-xl' icon={faCalendarDays} />
                         <span className="text-sm text-black font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Dashboard</span>
                     </div>
-                </Link>
+                </NavLink>
               </li>
-              <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 bg-[#40d0c6]`}>
-                <Link to="/appointment">
+              <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 hover:bg-[#40d0c6]`}>
+                <NavLink to={`/dashboard/appointment`}>
                     <div className="flex items-center">
-                        <FontAwesomeIcon className='text-xl' icon={faCalendarDays} />
-                        <span className="text-sm text-black font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Appoinment</span>
+                        <FontAwesomeIcon className='text-xl text-[#8F9DAF]' icon={faCalendarDays} />
+                        <span className="text-lg text-[#8F9DAF] font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Appoinment</span>
                     </div>
-                </Link>
+                </NavLink>
               </li>
-              <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 bg-[#40d0c6]`}>
+              <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 `}>
                 <Link to="/">
                     <div className="flex items-center">
                         <FontAwesomeIcon className='text-xl' icon={faCalendarDays} />

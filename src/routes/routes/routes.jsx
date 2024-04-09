@@ -12,10 +12,10 @@ import DoctorDetails from '../../pages/doctors/DoctorDetails';
 import Registration from '../../pages/registration/Registration';
 import ManageUser from '../../pages/dashboard/admin/manageUser/ManageUser';
 import MyAppointment from '../../pages/dashboard/user/myBooking/MyAppointment';
-import ManagePatient from '../../pages/dashboard/doctor/managePatient/ManagePatient';
 import AddAppointment from '../../pages/dashboard/doctor/addAppointment/AddAppointment';
-import ManageAppointment from '../../pages/dashboard/admin/manageAppointment/ManageAppointment';
 import Error from '../../pages/errorPage/Error';
+import Appointment from '../../pages/dashboard/doctor/managePatient/Appointment';
+import DoctorDashboard from '../../pages/dashboard/doctor/DoctorDashboard';
 
 const router = createBrowserRouter([
     {
@@ -53,10 +53,6 @@ const router = createBrowserRouter([
             {
                 path:"registration",
                 element:<Registration></Registration>
-            },
-            {
-                path:"manage_patient",
-                element:<ManagePatient></ManagePatient>
             }
         ]
     },
@@ -65,25 +61,21 @@ const router = createBrowserRouter([
         element:<Dashboard></Dashboard>,
         children:[
             {
+                path:"doctor",
+                element:<DoctorDashboard />
+            },
+            {
                 path:"manage_user",
                 element:<ManageUser></ManageUser>
             },
             {
-                path:"Manage_appointment",
-                element:<ManageAppointment></ManageAppointment>
-            },
-            {
                 path:"add_appointment",
-                element:<AddAppointment></AddAppointment>
-            },
-            {
-                path:"manage_patient",
-                element:<ManagePatient></ManagePatient>
+                element:<AddAppointment />
             },
             {
                 path:"appointment",
-                element:<ManagePatient></ManagePatient>
-            }
+                element:<Appointment />
+            },
         ]
     },
     {
