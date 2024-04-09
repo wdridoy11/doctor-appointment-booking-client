@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 
 import Sidebar from '../components/DashboardComponents/Sidebar';
 import Header from '../components/DashboardComponents/Header';
-import AppoinmentBoard from '../components/DashboardComponents/AppoinmentBoard';
-import AppoinmentSummaey from '../components/DashboardComponents/AppoinmentSummaey';
+import AppoinmentBoard from '../pages/dashboard/doctor/appoinmentBoard/AppoinmentBoard';
+import AppoinmentSummaey from '../pages/dashboard/doctor/patientsDetails/AppoinmentSummaey';
+import AppoinmentRespons from '../pages/dashboard/doctor/appoinmentRespons/AppoinmentRespons';
 
 function Dashboard() {
 
@@ -25,9 +26,13 @@ function Dashboard() {
 
             {/* Cards */}
             {/* <div className="grid grid-cols-12 gap-6"> */}
-              <AppoinmentBoard />
+              {/* <AppoinmentBoard />
               <AppoinmentSummaey />
+              <AppoinmentInfo /> */}
             {/* </div> */}
+            <AppoinmentBoard />
+            <AppoinmentSummaey />
+            <AppoinmentRespons />
 
           </div>
         </main>

@@ -79,6 +79,10 @@ const router = createBrowserRouter([
             {
                 path:"manage_patient",
                 element:<ManagePatient></ManagePatient>
+            },
+            {
+                path:"appointment",
+                element:<ManagePatient></ManagePatient>
             }
         ]
     },
