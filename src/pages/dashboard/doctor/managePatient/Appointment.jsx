@@ -1,9 +1,21 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { faChartBar, faCheck, faCircleXmark, faMessage } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'react-router-dom'
+import { AuthContext } from '../../../../context/AuthProvider'
+import Patients from './Patients'
 
 const Appointment = () => {
+  const {user} = useContext(AuthContext);
+  const [patients, setPatients] = useState();
+  useEffect(()=>{
+    fetch(`http://localhost:5000/bookings?email=${user?.email}`)
+    .then((res)=>res.json())
+    .then((data)=>setPatients(data))
+    .catch((error)=>console.log(error.message))
+  },[])
+
+
   return (
     <div>
         <div className='grid grid-cols-3 gap-5'>
@@ -22,109 +34,7 @@ const Appointment = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {/* row 1 */}
-                    <tr>
-                      <td>
-                        <div className="flex items-center space-x-3">
-                          <div className="w-12 h-12">
-                            <img className='rounded-full' src="https://cdn.pixabay.com/photo/2024/03/25/18/35/ai-generated-8655320_1280.png" alt="profile photo" />
-                          </div>
-                        </div>
-                      </td>
-                      <td>Ridoy</td>
-                      <td>Ridoy</td>
-                      <td>Ridoy</td>
-                      <td>Ridoy</td>
-                      <td>
-                        <div>
-                          <div className='flex gap-3'>
-                              <div>
-                                  <button className='bg-[#40d0c6] px-2 py-1 rounded-md hover:bg-black duration-500'>
-                                      <FontAwesomeIcon className='text-white text-lg' icon={faCheck} title='Accept' />
-                                  </button>
-                              </div>
-                              <div>
-                                  <button className='bg-red-500 px-2 py-1 rounded-md hover:bg-black duration-500'>
-                                      <FontAwesomeIcon className='text-white text-lg' icon={faCircleXmark} title='Cancel' />
-                                  </button>
-                              </div>
-                              <div>
-                                  <button className='bg-[#40d0c6] px-2 py-1 rounded-md hover:bg-black duration-500'>
-                                      <FontAwesomeIcon className='text-white text-lg' icon={faMessage} title='Message' />
-                                  </button>
-                              </div>
-                            </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div className="flex items-center space-x-3">
-                          <div className="w-12 h-12">
-                            <img className='rounded-full' src="https://cdn.pixabay.com/photo/2024/03/25/18/35/ai-generated-8655320_1280.png" alt="profile photo" />
-                          </div>
-                        </div>
-                      </td>
-                      <td>Ridoy</td>
-                      <td>Ridoy</td>
-                      <td>Ridoy</td>
-                      <td>Ridoy</td>
-                      <td>
-                        <div>
-                          <div className='flex gap-3'>
-                              <div>
-                                  <button className='bg-[#40d0c6] px-2 py-1 rounded-md hover:bg-black duration-500'>
-                                      <FontAwesomeIcon className='text-white text-lg' icon={faCheck} title='Accept' />
-                                  </button>
-                              </div>
-                              <div>
-                                  <button className='bg-red-500 px-2 py-1 rounded-md hover:bg-black duration-500'>
-                                      <FontAwesomeIcon className='text-white text-lg' icon={faCircleXmark} title='Cancel' />
-                                  </button>
-                              </div>
-                              <div>
-                                  <button className='bg-[#40d0c6] px-2 py-1 rounded-md hover:bg-black duration-500'>
-                                      <FontAwesomeIcon className='text-white text-lg' icon={faMessage} title='Message' />
-                                  </button>
-                              </div>
-                            </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div className="flex items-center space-x-3">
-                          <div className="w-12 h-12">
-                            <img className='rounded-full' src="https://cdn.pixabay.com/photo/2024/03/25/18/35/ai-generated-8655320_1280.png" alt="profile photo" />
-                          </div>
-                        </div>
-                      </td>
-                      <td>Ridoy</td>
-                      <td>Ridoy</td>
-                      <td>Ridoy</td>
-                      <td>Ridoy</td>
-                      <td>
-                        <div>
-                          <div className='flex gap-3'>
-                              <div>
-                                  <button className='bg-[#40d0c6] px-2 py-1 rounded-md hover:bg-black duration-500'>
-                                      <FontAwesomeIcon className='text-white text-lg' icon={faCheck} title='Accept' />
-                                  </button>
-                              </div>
-                              <div>
-                                  <button className='bg-red-500 px-2 py-1 rounded-md hover:bg-black duration-500'>
-                                      <FontAwesomeIcon className='text-white text-lg' icon={faCircleXmark} title='Cancel' />
-                                  </button>
-                              </div>
-                              <div>
-                                  <button className='bg-[#40d0c6] px-2 py-1 rounded-md hover:bg-black duration-500'>
-                                      <FontAwesomeIcon className='text-white text-lg' icon={faMessage} title='Message' />
-                                  </button>
-                              </div>
-                            </div>
-                        </div>
-                      </td>
-                    </tr>
+                    {patients?.map((patient) =><Patients patient={patient} />)}
                   </tbody>
                 </table>
               </div>

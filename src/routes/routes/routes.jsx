@@ -33,12 +33,12 @@ const router = createBrowserRouter([
             {
                 path:"doctors/:id",
                 element:<DoctorDetails></DoctorDetails>,
-                loader:({params})=>fetch(`http://localhost:5000/doctors/${params.id}`)
+                loader:({params})=>fetch(`http://localhost:5000/doctor/${params.id}`)
             },
             {
                 path:"booking/:id",
                 element:<PrivetRoute><Booking></Booking></PrivetRoute>,
-                loader:({params})=>fetch(`http://localhost:5000/doctors/${params.id}`)
+                loader:({params})=>fetch(`http://localhost:5000/doctor/${params.id}`)
                 // loader:({params})=>fetch(`http://localhost:5000/bookings/${params.id}`)
             },
             {

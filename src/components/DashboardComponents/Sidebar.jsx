@@ -1,12 +1,23 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Logo from '../../assets/logo-1.png';
-import { faCalendarDays, faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { faBorderAll, faCalendarDays, faEnvelope, faHome, faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 import SidebarLinkGroup from './SidebarLinkGroup';
 import Calendar from 'react-calendar';
+import { AuthContext } from '../../context/AuthProvider';
 
 function Sidebar({ sidebarOpen, setSidebarOpen }) {
+
+  const {user,logOut} = useContext(AuthContext);
+  const userLogout=()=>{
+    logOut()
+    .then((result)=>console.log(result))
+      .catch((error)=>{
+        console.log(error.message)
+      })
+  }
+
   const location = useLocation();
   const { pathname } = location;
 
@@ -81,7 +92,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
           </button>
           {/* Logo */}
           <div>
-            <Link>
+            <Link> 
               <img className='w-9/12 mx-auto' src={Logo} alt="Logo" />
             </Link>
             <div>
@@ -98,34 +109,59 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
               <span className="hidden lg:block lg:sidebar-expanded:hidden 2xl:hidden text-center w-6" aria-hidden="true">
                 •••
               </span>
-              <span className="lg:hidden lg:sidebar-expanded:block 2xl:block">Pages</span>
+              {/* <span className="lg:hidden lg:sidebar-expanded:block 2xl:block">Pages</span> */}
             </h3>
-            <ul className="mt-3">
-              <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 `}>
-                <NavLink to={`/dashboard/doctor`}>
-                    <div className="flex items-center">
-                        <FontAwesomeIcon className='text-xl' icon={faCalendarDays} />
-                        <span className="text-sm text-black font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Dashboard</span>
-                    </div>
-                </NavLink>
-              </li>
-              <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 hover:bg-[#40d0c6]`}>
-                <NavLink to={`/dashboard/appointment`}>
-                    <div className="flex items-center">
-                        <FontAwesomeIcon className='text-xl text-[#8F9DAF]' icon={faCalendarDays} />
-                        <span className="text-lg text-[#8F9DAF] font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Appoinment</span>
-                    </div>
-                </NavLink>
-              </li>
-              <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 `}>
-                <Link to="/">
-                    <div className="flex items-center">
-                        <FontAwesomeIcon className='text-xl' icon={faCalendarDays} />
-                        <span className="text-sm text-black font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Inbox</span>
-                    </div>
-                </Link>
-              </li>
-            </ul>
+            <div>
+                <ul className="mt-3">
+                  <li className="px-3 py-2 rounded-md mb-0.5 last:mb-0 hover:bg-[#40d0c6]">
+                    <NavLink to={`/dashboard/doctor`}>
+                        <div className="flex items-center">
+                            <FontAwesomeIcon className='text-xl' icon={faBorderAll} />
+                            <span className="text-lg text-black font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Dashboard</span>
+                        </div>
+                    </NavLink>
+                  </li>
+                  <li className="px-3 py-2 rounded-md mb-0.5 last:mb-0 hover:bg-[#40d0c6]">
+                    <NavLink to={`/dashboard/appointment`}>
+                        <div className="flex items-center">
+                            <FontAwesomeIcon className='text-xl' icon={faCalendarDays} />
+                            <span className="text-lg text-black font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Appoinment</span>
+                        </div>
+                    </NavLink>
+                  </li>
+                  <li className="px-3 py-2 rounded-md mb-0.5 last:mb-0 hover:bg-[#40d0c6]">
+                    <Link to="/">
+                        <div className="flex items-center">
+                            <FontAwesomeIcon className='text-xl' icon={faCalendarDays} />
+                            <span className="text-lg text-black font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Inbox</span>
+                        </div>
+                    </Link>
+                  </li>
+                </ul>
+
+                <ul className='absolute bottom-5 left-0 w-full px-3'>
+                  <li className="px-3 py-2 rounded-md mb-0.5 last:mb-0 hover:bg-[#40d0c6]">
+                    <Link to="/">
+                        <div className="flex items-center">
+                            <FontAwesomeIcon className='text-xl' icon={faHome} />
+                            <span className="text-lg text-black font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Home</span>
+                        </div>
+                    </Link>
+                  </li>
+                  <li className="px-3 py-2 rounded-md mb-0.5 last:mb-0 hover:bg-[#40d0c6]">
+                    <Link onClick={userLogout}>
+                        <div className="flex items-center">
+                            <FontAwesomeIcon className='text-xl' icon={faRightFromBracket} />
+                            <span className="text-lg text-black font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Logout</span>
+                        </div>
+                    </Link>
+                  </li>
+                </ul>
+
+
+
+            </div>
+            
           </div>
         </div>
 

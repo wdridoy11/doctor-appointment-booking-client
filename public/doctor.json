@@ -1,0 +1,74 @@
+[
+    {
+    "name": "Dr. David Patel",
+    "image": "https://img.freepik.com/free-photo/smiling-touching-arms-crossed-room-hospital_1134-799.jpg?w=740&t=st=1685241942~exp=1685242542~hmac=ee8bf4db7c0f51790bd6281961d4be59e909639db5a556c972f14a0f00118130",
+    "degree": "MBBS",
+    "email":"davidpatel11@gmail.com",
+    "rating": 4.9,
+    "location": "Los Angeles",
+    "services": [
+    "Cardiac Evaluation",
+    "Angiography",
+    "Heart Surgeries"
+    ],
+    "about": "Dr. David Patel is a renowned cardiologist specializing in diagnosing and treating heart conditions.",
+    "specializations": [
+    "Cardiology",
+    "Interventional Cardiology"
+    ]
+    },
+    {
+    "name": "Dr. Emily Roberts",
+    "image": "https://img.freepik.com/free-photo/smiling-doctor-with-strethoscope-isolated-grey_651396-974.jpg?w=740&t=st=1685241835~exp=1685242435~hmac=e9e49b0e0d9d35adb109e965b8235180ab13b8d61538390f51c9455390e89921",
+    "degree": "MBBS",
+    "email":"emilyroberts22@gmail.com",
+    "rating": 4.7,
+    "location": "New York",
+    "services": [
+    "General Check-up",
+    "Vaccinations",
+    "Minor Surgeries"
+    ],
+    "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "specializations": [
+    "General Medicine",
+    "Internal Medicine"
+    ]
+    },
+    {
+    "name": "Dr. John Miller",
+    "image": "https://img.freepik.com/free-photo/cheerful-male-doctor-white-gown-portrait_53876-108640.jpg?w=740&t=st=1685242040~exp=1685242640~hmac=13df1645b365d0a55e8f3850623285f082670ca9c4c999ff77f960f61cd2ba59",
+    "degree": "MD",
+    "email":"johnmiller33@gmail.com",
+    "rating": 4.8,
+    "location": "San Francisco",
+    "services": [
+    "Orthopedic Surgery",
+    "Sports Medicine",
+    "Joint Replacement"
+    ],
+    "about": "Dr. John Miller is an experienced orthopedic surgeon specializing in surgical and non-surgical treatments for musculoskeletal conditions.",
+    "specializations": [
+    "Orthopedic Surgery",
+    "Sports Medicine"
+    ]
+    },
+    {
+    "name": "Dr. Sarah Thompson",
+    "image": "https://img.freepik.com/free-photo/i-love-my-job-so-much_329181-2178.jpg?w=740&t=st=1685241928~exp=1685242528~hmac=42853ccc87de25a4c385fed8cf042c61fea43c3363ee9595a87a612570fb579a",
+    "degree": "MBBS",
+    "email":"sarahthompson110@gmail.com",
+    "rating": 4.5,
+    "location": "Chicago",
+    "services": [
+    "Pediatric Check-up",
+    "Immunizations",
+    "Child Development Assessments"
+    ],
+    "about": "Dr. Sarah Thompson is a compassionate pediatrician dedicated to promoting the health and well-being of children.",
+    "specializations": [
+    "Pediatrics",
+    "Child Health"
+    ]
+    }
+    ]

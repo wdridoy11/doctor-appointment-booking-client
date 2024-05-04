@@ -21,12 +21,19 @@ const Booking = () => {
   const doctorData = useLoaderData();
   const {image,name,location}=doctorData;
   const { register, handleSubmit, setError,reset,watch,formState: { errors }} = useForm()
- 
+
   const onSubmit = (data) => {
-    console.log(data)
+    fetch(`http://localhost:5000/bookings`,{
+        method:"POST",
+        headers:{
+            "Content-Type":"application/json"
+        },
+        body:JSON.stringify({...data,doctorEmail:user?.email,image:user?.photoURL})
+    })
+    .then((res)=>res.json())
+    .then((data) =>console.log(data));
   }
-
-
+console.log()
   return (
     <div>
       <Cover coverImg={bookingCover} title="Appointment"></Cover>
