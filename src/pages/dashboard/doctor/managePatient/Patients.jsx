@@ -9,17 +9,31 @@ const Patients = ({patient}) => {
   
   const handelApproved=(id)=>{
     console.log(id)
-    fetch(`http://localhost:5000/booking/${id}`,{
+    fetch(`http://localhost:5000/booking/approved/${id}`,{
       method:"PATCH",
       headers:{
         "content-type":"application/json"
       }
     })
     .then((res)=>res.json())
-    .then((data)=>console.log(data))
+    .then((data)=>console.log("Hello"))
     .catch((err)=>console.log(err.message))
   }
-  console.log(patient)
+
+  const handelCancel=(id)=>{
+    console.log(id)
+    fetch(`http://localhost:5000/booking/cancel/${id}`,{
+      method:"PATCH",
+      headers:{
+        "content-type":"application/json"
+      }
+    })
+    .then((res)=>res.json())
+    .then((data)=>console.log("Hello"))
+    .catch((err)=>console.log(err.message))
+  }
+
+
   return (
     <>
         <tr className='hover'>
@@ -36,24 +50,28 @@ const Patients = ({patient}) => {
               <td>
                 <div>
                   {patient.status === "approved" ? <p className='text-lg text-[#40d0c6]'>Approved</p>:
-                      <div className='flex gap-3'>
-                        <div>
-                            <button onClick={()=>handelApproved(patient._id)} className='bg-[#40d0c6] px-2 py-1 rounded-md hover:bg-black duration-500'>
-                                <FontAwesomeIcon className='text-white text-lg' icon={faCheck} title='Accept' />
-                            </button>
+                    <div>
+                      {patient.status === "cancel" ? <p className='text-lg text-red-500'>Cancel</p>:
+                        <div className='flex gap-3'>
+                          <div>
+                              <button onClick={()=>handelApproved(patient._id)} className='bg-[#40d0c6] px-2 py-1 rounded-md hover:bg-black duration-500'>
+                                  <FontAwesomeIcon className='text-white text-lg' icon={faCheck} title='Accept' />
+                              </button>
+                          </div>
+                          <div>
+                              <button onClick={()=>handelCancel(patient._id)} className='bg-red-500 px-2 py-1 rounded-md hover:bg-black duration-500'>
+                                  <FontAwesomeIcon className='text-white text-lg' icon={faCircleXmark} title='Cancel' />
+                              </button>
+                          </div>
+                          <div>
+                              <button className='bg-[#40d0c6] px-2 py-1 rounded-md hover:bg-black duration-500'>
+                                  <FontAwesomeIcon className='text-white text-lg' icon={faMessage} title='Message' />
+                              </button>
+                          </div>
                         </div>
-                        <div>
-                            <button className='bg-red-500 px-2 py-1 rounded-md hover:bg-black duration-500'>
-                                <FontAwesomeIcon className='text-white text-lg' icon={faCircleXmark} title='Cancel' />
-                            </button>
-                        </div>
-                        <div>
-                            <button className='bg-[#40d0c6] px-2 py-1 rounded-md hover:bg-black duration-500'>
-                                <FontAwesomeIcon className='text-white text-lg' icon={faMessage} title='Message' />
-                            </button>
-                        </div>
-                      </div>
-                    }
+                      }
+                    </div>
+                  }
                 </div>
               </td>
             </tr>
