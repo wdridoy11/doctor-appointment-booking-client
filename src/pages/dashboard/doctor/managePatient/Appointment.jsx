@@ -15,7 +15,6 @@ const Appointment = () => {
     .catch((error)=>console.log(error.message))
   },[])
 
-
   return (
     <div>
         <div className='grid grid-cols-3 gap-5'>
@@ -25,12 +24,11 @@ const Appointment = () => {
                   {/* head */}
                   <thead>
                     <tr className='border-b'>
-                      <th className='bg-white'>Patient</th>
-                      <th className='bg-white'>Name</th>
-                      <th className='bg-white'>App.Date</th>
-                      <th className='bg-white'>Amount</th>
-                      <th className='bg-white'>Time</th>
-                      <th className='bg-white'>Action</th>
+                      <th className='bg-white capitalize'>Patient</th>
+                      <th className='bg-white capitalize'>Name</th>
+                      <th className='bg-white capitalize'>App.Date</th>
+                      <th className='bg-white capitalize'>Time</th>
+                      <th className='bg-white capitalize'>Action</th>
                     </tr>
                   </thead>
                   <tbody>

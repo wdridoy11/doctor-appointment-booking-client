@@ -33,7 +33,8 @@ const Booking = () => {
     .then((res)=>res.json())
     .then((data) =>console.log(data));
   }
-console.log()
+
+  
   return (
     <div>
       <Cover coverImg={bookingCover} title="Appointment"></Cover>
@@ -94,10 +95,15 @@ console.log()
                                             </select>
                                         </div>
                                     </div>
-                                    <div className='mt-3 mb-5'>
+                                    <div className='grid md:grid-cols-2 gap-5 mt-3 mb-5'>
+                                        <div>
+                                            <label className='block mb-1'>Phone Number</label>
+                                            <input type='tel' className='w-full border border-[#ddd] p-2 rounded-sm text-base outline-none' {...register("phone-number",{required: true})}/>
+                                            {errors.date && <p className='text-red-600'>This field is required</p>}
+                                        </div>
                                         <div>
                                             <label className='block mb-1'>Message or Problem</label>
-                                            <textarea className='w-full border border-[#ddd] p-2 rounded-sm text-base outline-none' {...register("message",{required: true})} cols="30" rows="5"></textarea>
+                                            <textarea className='w-full border border-[#ddd] p-2 rounded-sm text-base outline-none' {...register("message",{required: true})} cols="30" rows="1"></textarea>
                                         </div>
                                     </div>
                                 </div>
