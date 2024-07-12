@@ -1,13 +1,15 @@
 import React, { useEffect } from 'react'
-import { faChartBar, faCheck, faCircleXmark, faMessage } from '@fortawesome/free-solid-svg-icons'
+import { faCheck, faCircleXmark } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 
-const Patients = ({patient}) => {
+const Patients = ({patient, sethoverPatientsData}) => {
 
   const {firstName,lastName,message,gender,email,date,time,image} = patient.newBooking;
   
+  // appoinment approved button handle
   const handelApproved=(id)=>{
+    
     console.log(id)
     fetch(`http://localhost:5000/booking/approved/${id}`,{
       method:"PATCH",
@@ -20,6 +22,7 @@ const Patients = ({patient}) => {
     .catch((err)=>console.log(err.message))
   }
 
+  // appoinment Cancel button handle
   const handelCancel=(id)=>{
     console.log(id)
     fetch(`http://localhost:5000/booking/cancel/${id}`,{
@@ -33,10 +36,13 @@ const Patients = ({patient}) => {
     .catch((err)=>console.log(err.message))
   }
 
+  const handleHoverData =()=>{
+    sethoverPatientsData(patient)
+  }
 
   return (
     <>
-        <tr className='hover'>
+        <tr onMouseOver={handleHoverData} className='hover'>
             <td>
                 <div className="flex items-center space-x-3">
                   <div className="w-12 h-12 ring-2 rounded-full">
@@ -63,11 +69,11 @@ const Patients = ({patient}) => {
                                   <FontAwesomeIcon className='text-white text-lg' icon={faCircleXmark} title='Cancel' />
                               </button>
                           </div>
-                          <div>
+                          {/* <div>
                               <button className='bg-[#40d0c6] px-2 py-1 rounded-md hover:bg-black duration-500'>
                                   <FontAwesomeIcon className='text-white text-lg' icon={faMessage} title='Message' />
                               </button>
-                          </div>
+                          </div> */}
                         </div>
                       }
                     </div>

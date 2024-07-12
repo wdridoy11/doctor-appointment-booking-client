@@ -40,7 +40,7 @@ const TodayAppoinment = () => {
                     </tbody>
                 </table>
             </div>
-            <Link className='inline-block mt-3 text-lg font-medium text-[#40d0c6]'>See All</Link>
+            <Link className='inline-block mt-3 text-lg font-medium text-[#40d0c6]' to={'/dashboard/appointment'}>See All</Link>
         </div>
     </div>
   )

@@ -17,11 +17,12 @@ const Booking = () => {
   const currentDate = new Date();
   const currentDateISOString = currentDate.toISOString().slice(0, 10);
 
-    // doctor data load
+  // doctor data load
   const doctorData = useLoaderData();
-  const {image,name,location}=doctorData;
+  const {image,name,location} = doctorData;
   const { register, handleSubmit, setError,reset,watch,formState: { errors }} = useForm()
 
+    //  appointment booking 
   const onSubmit = (data) => {
     fetch(`http://localhost:5000/bookings`,{
         method:"POST",
@@ -31,7 +32,22 @@ const Booking = () => {
         body:JSON.stringify({...data,doctorEmail:user?.email,image:user?.photoURL})
     })
     .then((res)=>res.json())
-    .then((data) =>console.log(data));
+    .then((data) =>{
+        if(data.insertedId){
+            Swal.fire({
+                icon:'success',
+                title: 'Your appointment has been booked',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        }else{
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong!',
+            })
+        }
+    });
   }
 
   
@@ -98,7 +114,7 @@ const Booking = () => {
                                     <div className='grid md:grid-cols-2 gap-5 mt-3 mb-5'>
                                         <div>
                                             <label className='block mb-1'>Phone Number</label>
-                                            <input type='tel' className='w-full border border-[#ddd] p-2 rounded-sm text-base outline-none' {...register("phone-number",{required: true})}/>
+                                            <input type='tel' className='w-full border border-[#ddd] p-2 rounded-sm text-base outline-none' {...register("phoneNumber",{required: true})}/>
                                             {errors.date && <p className='text-red-600'>This field is required</p>}
                                         </div>
                                         <div>
